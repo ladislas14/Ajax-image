@@ -8,8 +8,7 @@
     $.fn.dropfile = function(oo){
         if(oo) $.extend(o,oo);         
         this.each(function(){
-            $('<span>').addClass('instructions').append(o.message).appendTo(this);
-            $('<span>').addClass('progress').append(o.message).appendTo(this);
+            $('<div>').addClass('instructions').append('<p class="info">' + o.message + '</p>').appendTo(this);
             $(this).bind({
                 dragenter : function(e){
                     e.preventDefault();
@@ -55,10 +54,8 @@
             },false);
             xhr.upload.addEventListener('progress',function(e){
                 if(e.lengthComputable){
-                    var perc = (Math.round(e.loaded/e.total) * 100);
-                    $( "#progressbar" ).progressbar({
-                        value: perc
-                    });
+                    var perc = (Math.round(e.loaded/e.total) * 100)+ '%';
+                    progress.css({height:perc}).html(perc);
                 }
             },false);
             xhr.open('post',o.script, true);

@@ -1,4 +1,4 @@
-.dropfile
+/**.dropfile
 {
 	border:3px dashed #CDCACA !important;
 	color:#ABA9A9 !important;
@@ -64,13 +64,83 @@
 	margin-top:-21px;
 	text-align:center;
 	z-index:9;
+}*/
+
+.dropfile{
+	border: 4px dashed #DDDDDD;
+	height: 200px;
 }
+
+.dropfile .instructions {
+	margin: 70px auto 0;
+	width: 250px;
+}
+
+.instructions p {
+	color: #aaa;
+	font-size: 14px;
+	margin: 5px 0;
+	display: none;
+}
+
+.dropfile .instructions p {
+	text-align: center;
+}
+
+.instructions p.info {
+	font-size: 20px;
+}
+
+.dropfile .instructions p {
+	display: block;
+}
+
 .bloc{
 	height: 400px;
 }
-.perc{
-	position: relative;
-	margin-left: 21%;
-	margin-bottom: -20px;
+.progress {
+    height: 22px;
+    margin: 6px 20px 0 0;
+    width: 200px;
+	line-height: 2em;
+	padding: 0;
+	overflow: hidden;
+	margin-bottom: 2px;
+	border: 1px solid #d1d1d1;
+	background: #fff;
+	background-image: linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(247,247,247) 100%);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.1);
+	box-shadow: inset 0 0 3px rgba(0,0,0,0.1);
 }
 
+.bar {
+	z-index: 9;
+	width: 0;
+	height: 100%;
+	margin-top: -24px;
+	background-color: #83B4D8;
+	background-image: linear-gradient(bottom, rgb(114,167,207) 0%, rgb(144,197,238) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(114,167,207) 0%, rgb(144,197,238) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(114,167,207) 0%, rgb(144,197,238) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(114,167,207) 0%, rgb(144,197,238) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(114,167,207) 0%, rgb(144,197,238) 100%);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 3px rgba(0,0,0,0.3);
+	box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+.progress .percent {
+	z-index: 10;
+	position: relative;
+	width: 200px;
+	padding: 0 8px;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+	color: rgba(0,0,0,0.6);
+}
