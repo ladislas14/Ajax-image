@@ -55,8 +55,10 @@
             },false);
             xhr.upload.addEventListener('progress',function(e){
                 if(e.lengthComputable){
-                    var perc = (Math.round(e.loaded/e.total) * 100)+ '%';
-                    progress.css({height:perc}).html(perc);
+                    var perc = (Math.round(e.loaded/e.total) * 100);
+                    $( "#progressbar" ).progressbar({
+                        value: perc
+                    });
                 }
             },false);
             xhr.open('post',o.script, true);
