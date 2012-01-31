@@ -1,17 +1,25 @@
-<?php 
-    header('content-type: application/json');
-    $h = getallheaders();
-    $o = new stdClass();
-    $source = file_get_contents('php://input');
-    $types = Array('image/png', 'image/gif', 'image/jpeg');
-
-    if(!in_array($h['x-file-type'],$types)){
-        $o->error = 'Format non supporté';
-    }else{
-        file_put_contents('img/'.$h['x-file-name'],$source);  
-        $o->name = $h['x-file-name'];
-        $o->content = '<img src="img/'.$h['x-file-name'].'"/>';
-    }
-    echo json_encode($o);
-    
- ?>
+<?php
+if(isset($_GET['action']) && $_GET['action'] == 'delete'){
+	/**
+	* PENSER A SECURISER CETTE LIGNE (vérifier le format de file)
+	**/
+	unlink('uploads/'.$_GET['file']); 
+	die();
+}
+$file = $_FILES['file'];
+$name = $file['name'];
+if(filesize($file['tmp_name']) > 10000000){
+	die('{"error":true, "message": "Image trop grande"}'); 
+}
+if(file_exists('uploads/'.$name)){
+	die('{"error":true, "message": "L\'image existe déjà"}'); 
+}
+/**
+* PENSER A SECURISER CETTE LIGNE (vérifier le format de file)
+**/
+move_uploaded_file($_FILES['file']['tmp_name'],'uploads/'.$_FILES['file']['name']);
+$v = 'uploads/'.$_FILES['file']['name']; 
+$html = '<div class="file"><img src="'.$v.'"/> '.basename($v).'<div class="actions"><a href="'.basename($v).'" class="del">Supprimer</a></div> </div>';
+$html = str_replace('"','\\"',$html);
+die('{"error":false, "html": "'.$html.'"}'); 
+?>

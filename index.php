@@ -1,46 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>DropArea</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <link rel="stylesheet" href="http://www.grafikart.fr/demo/coreadmin/css/style.css" />
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
-        
-        <link rel="stylesheet" href="css/style.css" />
-        <script type="text/javascript" src="js/dropfile.js"></script>
-        <script type="text/javascript">
-            jQuery(function($){
-                $('.dropfile').dropfile();
-            });
-        </script>   
-    </head>
-    <body class="wood dark">
-        
-        <!--              
-                HEAD
-                        --> 
-        <div id="head">
-            <div class="left">
-                <a href="" class="button profile"><img src="http://www.grafikart.fr/demo/coreadmin/img/icons/top/huser.png" alt="" /></a>
-                Bonjour, 
-                <a href="#">Grafikart.fr</a>
-            </div>
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"> 
+    <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+    <title></title> 
+    <link rel="stylesheet" href="css/style.css">
+    </head> 
+    <body>       
+      
+        <div id="plupload">
+        	<div id="droparea">
+        		<p>Déposez vos fichiers ici</p>
+        		<span class="or">ou</span>
+        		<a href="#" id="browse">Parcourir</a>
+        	</div>
+        	<div id="filelist">
+        		<?php foreach(glob('uploads/*.*') as $v): ?>
+                    <div class="file">
+                        <img src="<?php echo $v; ?>"/>
+                        <?php echo basename($v); ?>
+                        <div class="actions">
+                            <a href="<?php echo basename($v); ?>" class="del">Supprimer</a>
+                        </div>  
+                    </div>
+                <?php endforeach; ?>
+        	</div>
         </div>
-        <div id="content" class="nosidebar">
-            <h1>Upload en Drag & Drop</h1>
-            <div class="bloc">
-                <div class="title">Ajout d'une nouvelle image</div>
-                <div class="content">
-                        <div class="dropfile"></div>
-                        <div class="progress">
-                            <div class="percent">50%</div>
-                            <div class="bar" style="width: 50%"></div>
-                        </div>
-                </div>
-            </div>
-        </div>
-        
-        
-    </body>
+         
+    </body> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/plupload/plupload.js"></script>
+    <script type="text/javascript" src="js/plupload/plupload.flash.js"></script>
+    <script type="text/javascript" src="js/plupload/plupload.html5.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </html>
