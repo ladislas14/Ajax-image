@@ -1,5 +1,8 @@
 @import "compass";
 
+a{color: #21759B}
+a:hover{color: #D54E21}
+
 #plupload{ font-family: Arial,Helvetica; color:#AAA;
 	#droparea{
 		border: 4px dashed #ddd;
@@ -24,13 +27,15 @@
 		.file{ 
 			padding:0 10px;
 			border: 1px solid #DFDFDF;
-			height: 70px; line-height: 70px;
+			height: 50px; line-height: 50px;
 			margin-bottom: 10px;
 			position: relative;
+			color: #7F7F7F;
+			font-size: 13px;
 		}
 		img{ 
 			margin-right: 10px;
-			height: 55px;
+			height: 35px;
 			vertical-align: middle;
 		}
 		.actions{
@@ -38,7 +43,6 @@
 			top:0px;
 			right:5px;
 		}
-		.del{ color:#FF0000; }
 		.progressbar{
 			position: absolute;
 			top:25px; right:5px;

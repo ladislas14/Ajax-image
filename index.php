@@ -19,7 +19,7 @@
                         <img src="<?php echo $v; ?>"/>
                         <?php echo basename($v); ?>
                         <div class="actions">
-                            <a href="<?php echo basename($v); ?>" class="del">Supprimer</a>
+                            <a href="<?php echo basename($v); ?>" class="show">Afficher</a>
                         </div>  
                     </div>
                 <?php endforeach; ?>
